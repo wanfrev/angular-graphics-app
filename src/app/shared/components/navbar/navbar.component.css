@@ -1,4 +1,9 @@
+*{
+  color: white;
+}
 #navbar{
   width: 100vw;
-  height: 150px;
+}
+.active{
+  color: gray;
 }
