@@ -1,25 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BarChartComponent } from './components/bar-chart/bar-chart.component';
-import { LineChartComponent } from './components/line-chart/line-chart.component';
-import { PieChartComponent } from './components/pie-chart/pie-chart.component';
-import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
-import { ScatterChartComponent } from './components/scatter-chart/scatter-chart.component';
-import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
+import { BarComponent } from './pages/bar/bar.component';
+import { DoughnutComponent } from './pages/doughnut/doughnut.component';
+import { LineComponent } from './pages/line/line.component';
+import { PieComponent } from './pages/pie/pie.component';
+import { RadarComponent } from './pages/radar/radar.component';
+import { ScatterComponent } from './pages/scatter/scatter.component';
+import { SharedModule } from '../shared/shared.module';
+import { GraphicsRoutingModule } from './graphics-routing.module';
 
 
 
 @NgModule({
   declarations: [
-    BarChartComponent,
-    LineChartComponent,
-    PieChartComponent,
-    DoughnutChartComponent,
-    ScatterChartComponent,
-    RadarChartComponent
+    BarComponent,
+    DoughnutComponent,
+    LineComponent,
+    PieComponent,
+    RadarComponent,
+    ScatterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    GraphicsRoutingModule,
+    SharedModule,
   ]
 })
 export class GraphicsModule { }
