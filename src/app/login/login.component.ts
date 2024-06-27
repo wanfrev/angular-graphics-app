@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -37,7 +37,7 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private router: Router, private AuthService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   validateRegister(): boolean {
     let isValid = true;
@@ -54,7 +54,6 @@ export class LoginComponent {
       this.registerErrors.emailId = 'Ingrese un correo válido';
       isValid = false;
     }
-    // Verificación de la contraseña mejorada
     if (!this.userRegisterObj.password) {
       this.registerErrors.password = 'Ingrese una contraseña';
       isValid = false;
@@ -128,7 +127,7 @@ export class LoginComponent {
 
   onLogin() {
     if (this.validateLogin()) {
-      const loggedIn = this.AuthService.login(
+      const loggedIn = this.authService.login(
         this.userLogin.userName,
         this.userLogin.password
       );
@@ -138,7 +137,7 @@ export class LoginComponent {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Algo salio mal, intente de nuevo.',
+          text: 'Algo salió mal, intente de nuevo.',
         });
       }
     }
