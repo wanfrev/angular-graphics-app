@@ -1,32 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="login.component.css">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-	<div class="main">
-		<input type="checkbox" id="chk" aria-hidden="true">
+<div class="container">
+	<div class="screen">
+	  <div class="screen__content">
+		<form *ngIf="isLoginView" class="login" (ngSubmit)="onLogin()">
+		  <div class="login__field">
+			<i class="login__icon fas fa-user"></i>
+			<input name="userName" [(ngModel)]="userLogin.userName" type="text" class="login__input" placeholder="User name">
+			<div *ngIf="loginErrors.userName" class="error">{{ loginErrors.userName }}</div>
+		  </div>
+		  <div class="login__field">
+			<i class="login__icon fas fa-lock"></i>
+			<input name="password" [(ngModel)]="userLogin.password" type="password" class="login__input" placeholder="Password">
+			<div *ngIf="loginErrors.password" class="error">{{ loginErrors.password }}</div>
+		  </div>
+		  <button type="submit" class="button login__submit">
+			<span class="button__text">Login</span>
+			<i class="button__icon fas fa-chevron-right"></i>
+		  </button>
+		  <p class="count">No tienes una cuenta?
+			<a class="login__forgot" (click)="isLoginView = false">Registrate ahora</a>
+		  </p>
+		</form>
 
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Sign up</button>
-				</form>
-			</div>
-
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Login</button>
-				</form>
-			</div>
+		<form *ngIf="!isLoginView" class="login" (ngSubmit)="onRegister()">
+		  <div class="login__field">
+			<i class="login__icon fas fa-user"></i>
+			<input name="userName" [(ngModel)]="userRegisterObj.userName" type="text" class="login__input" placeholder="User name">
+			<div *ngIf="registerErrors.userName" class="error">{{ registerErrors.userName }}</div>
+		  </div>
+		  <div class="login__field">
+			<i class="login__icon fas fa-envelope"></i>
+			<input name="emailId" [(ngModel)]="userRegisterObj.emailId" type="email" class="login__input" placeholder="Email">
+			<div *ngIf="registerErrors.emailId" class="error">{{ registerErrors.emailId }}</div>
+		  </div>
+		  <div class="login__field">
+			<i class="login__icon fas fa-lock"></i>
+			<input name="password" [(ngModel)]="userRegisterObj.password" type="password" class="login__input" placeholder="Password">
+			<div *ngIf="registerErrors.password" class="error">{{ registerErrors.password }}</div>
+		  </div>
+		  <button type="submit" class="button login__submit">
+			<span class="button__text">Register</span>
+			<i class="button__icon fas fa-chevron-right"></i>
+		  </button>
+		  <a class="login__forgot" (click)="isLoginView = true">Ya tienes cuenta?</a>
+		</form>
+	  </div>
 	</div>
-</body>
-</html>
+  </div>
