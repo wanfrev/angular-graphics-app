@@ -15,8 +15,7 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    GraphicsModule,
-    LoginModule
+    GraphicsModule
   ],
   providers: [
     provideClientHydration()

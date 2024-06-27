@@ -132,7 +132,7 @@ export class LoginComponent {
         this.userLogin.password
       );
       if (loggedIn) {
-        this.router.navigateByUrl('dashboard');
+        this.router.navigateByUrl('graphics');
       } else {
         Swal.fire({
           icon: 'error',

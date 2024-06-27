@@ -1,9 +1,11 @@
-<div class="d-flex">
-
-  <!-- NavBar -->
-   <shared-sidebar></shared-sidebar>
-
-  <!-- HomePage -->
-   <router-outlet></router-outlet>
+<div class="container">
+  <div class="row row-cols-2">
+    <div class="col-sm-3">
+      <shared-sidebar></shared-sidebar>
+    </div>
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 
 </div>
