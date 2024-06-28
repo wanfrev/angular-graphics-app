@@ -1,0 +1,22 @@
+html{
+  box-sizing: border-box;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+*,*::before,*::after{
+  box-sizing: inherit;
+}
+
+body{
+  margin: 0;
+}
+
+.body-container{
+  background-color: #2a2438;
+}
+
+h2{
+  color: #dbd8e3;
+}

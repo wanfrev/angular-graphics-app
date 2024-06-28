@@ -8,6 +8,7 @@ import { RadarComponent } from './pages/radar/radar.component';
 import { ScatterComponent } from './pages/scatter/scatter.component';
 import { SharedModule } from '../shared/shared.module';
 import { GraphicsRoutingModule } from './graphics-routing.module';
+import { GraphicComponent } from './components/graphic/graphic.component';
 
 
 
@@ -18,7 +19,8 @@ import { GraphicsRoutingModule } from './graphics-routing.module';
     LineComponent,
     PieComponent,
     RadarComponent,
-    ScatterComponent
+    ScatterComponent,
+    GraphicComponent
   ],
   imports: [
     CommonModule,
