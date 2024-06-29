@@ -1,0 +1,36 @@
+<div class="container" *ngIf="!isLoggedIn">
+  <form *ngIf="isLoginView" (ngSubmit)="onLogin()">
+    <div class="field">
+      <label for="userName">User Name</label>
+      <input name="userName" [(ngModel)]="userLogin.userName" type="text" id="userName" />
+      <div *ngIf="loginErrors.userName" class="error">{{ loginErrors.userName }}</div>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input name="password" [(ngModel)]="userLogin.password" type="password" id="password" />
+      <div *ngIf="loginErrors.password" class="error">{{ loginErrors.password }}</div>
+    </div>
+    <button type="submit">Login</button>
+    <p>No tienes una cuenta? <a (click)="isLoginView = false">Registrate ahora</a></p>
+  </form>
+
+  <form *ngIf="!isLoginView" (ngSubmit)="onRegister()">
+    <div class="field">
+      <label for="registerUserName">User Name</label>
+      <input name="userName" [(ngModel)]="userRegisterObj.userName" type="text" id="registerUserName" />
+      <div *ngIf="registerErrors.userName" class="error">{{ registerErrors.userName }}</div>
+    </div>
+    <div class="field">
+      <label for="emailId">Email</label>
+      <input name="emailId" [(ngModel)]="userRegisterObj.emailId" type="email" id="emailId" />
+      <div *ngIf="registerErrors.emailId" class="error">{{ registerErrors.emailId }}</div>
+    </div>
+    <div class="field">
+      <label for="registerPassword">Password</label>
+      <input name="password" [(ngModel)]="userRegisterObj.password" type="password" id="registerPassword" />
+      <div *ngIf="registerErrors.password" class="error">{{ registerErrors.password }}</div>
+    </div>
+    <button type="submit">Register</button>
+    <a (click)="isLoginView = true">Ya tienes cuenta?</a>
+  </form>
+</div>
