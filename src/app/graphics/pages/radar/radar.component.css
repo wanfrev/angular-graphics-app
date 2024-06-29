@@ -1,11 +1,13 @@
-.chart-div{
+canvas {
   width: 100%;
-  height: 70vh;
+  height: 100%;
+  max-height: calc(100vh - 120px);
 }
-#radarChart{
+
+.form-div{
   width: 100%;
-  height: 90%;
 }
+
 .form-input, .form-btn{
   border-style: none;
   padding: 5px;
