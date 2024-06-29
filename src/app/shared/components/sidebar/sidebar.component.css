@@ -7,8 +7,8 @@
 .list-item{
   width: 100%;
   padding: 1rem;
-  margin-top: 1rem;
-  background-color: #352f44;
+  margin: 1rem;
+  background-color: #2F3645;
   border-radius: 10px;
   text-align: center;
 }

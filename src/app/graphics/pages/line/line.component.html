@@ -1,13 +1,20 @@
-<div class="container pt-2">
-  <h2>Grafica</h2>
-
-  <div class="row">
-    <div class="col"></div>
+<div class="graphic-container">
+  <h2>Line Chart</h2>
+  <div class="chart-div">
+    <canvas id="lineChart"></canvas>
   </div>
-
-  <div class="row">
-    <div class="col">
-      <canvas id="chart">{{ chart }}</canvas>
-    </div>
+  <div class="form-div">
+    <input
+      [(ngModel)]="newLabel"
+      placeholder="Enter label"
+      class="form-input"
+    />
+    <input
+      [(ngModel)]="newData"
+      placeholder="Enter data"
+      type="number"
+      class="form-input"
+    />
+    <button (click)="addData()" class="form-btn">Add Data</button>
   </div>
 </div>
