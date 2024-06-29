@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { GraphicsModule } from './graphics/graphics.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './login/login.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,7 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    GraphicsModule
+    FormsModule
   ],
   providers: [
     provideClientHydration()
