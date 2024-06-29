@@ -1,0 +1,15 @@
+<div class="container pt-2">
+  <h2>Doughnut Chart</h2>
+  <div class="row">
+    <div class="col">
+      <canvas id="doughnutChart"></canvas>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <input [(ngModel)]="newLabel" placeholder="Enter label" class="form-control mb-2"/>
+      <input [(ngModel)]="newData" placeholder="Enter data" type="number" class="form-control mb-2"/>
+      <button (click)="addData()" class="btn btn-primary">Add Data</button>
+    </div>
+  </div>
+</div>

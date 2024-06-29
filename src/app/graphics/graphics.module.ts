@@ -8,6 +8,7 @@ import { RadarComponent } from './pages/radar/radar.component';
 import { ScatterComponent } from './pages/scatter/scatter.component';
 import { SharedModule } from '../shared/shared.module';
 import { GraphicsRoutingModule } from './graphics-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,12 +19,13 @@ import { GraphicsRoutingModule } from './graphics-routing.module';
     LineComponent,
     PieComponent,
     RadarComponent,
-    ScatterComponent
+    ScatterComponent,
   ],
   imports: [
     CommonModule,
     GraphicsRoutingModule,
     SharedModule,
+    FormsModule
   ]
 })
 export class GraphicsModule { }
