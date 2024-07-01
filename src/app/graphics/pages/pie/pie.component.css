@@ -3,19 +3,3 @@ canvas {
   height: 100%;
   max-height: calc(100vh - 120px);
 }
-
-.form-div{
-  width: 100%;
-}
-
-.form-input, .form-btn{
-  border-style: none;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 10px;
-}
-
-.form-btn{
-  background-color: #939185;
-  color: #fff;
-}

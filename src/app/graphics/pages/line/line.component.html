@@ -1,20 +1,22 @@
-<div class="graphic-container">
+<div class="container-fluid">
   <h2>Line Chart</h2>
-  <div class="chart-div">
-    <canvas id="lineChart"></canvas>
-  </div>
-  <div class="form-div">
-    <input
-      [(ngModel)]="newLabel"
-      placeholder="Enter label"
-      class="form-input"
-    />
-    <input
-      [(ngModel)]="newData"
-      placeholder="Enter data"
-      type="number"
-      class="form-input"
-    />
-    <button (click)="addData()" class="form-btn">Add Data</button>
+  <div class="row pt-4">
+    <div class="form-label col-2">
+      <input
+        [(ngModel)]="newLabel"
+        placeholder="Enter label"
+        class="form-control"
+      />
+      <input
+        [(ngModel)]="newData"
+        placeholder="Enter data"
+        type="number"
+        class="form-control mt-2"
+      />
+      <button (click)="addData()" class="btn btn-primary mt-2">Add Data</button>
+    </div>
+    <div class="col-10">
+      <canvas id="lineChart"></canvas>
+    </div>
   </div>
 </div>

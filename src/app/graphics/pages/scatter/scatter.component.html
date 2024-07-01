@@ -1,21 +1,23 @@
-<div class="graphic-container">
+<div class="container-fluid">
   <h2>Scatter Chart</h2>
-  <div class="chart-div">
-    <canvas id="scatterChart"></canvas>
-  </div>
-  <div class="form-div">
-    <input
-      [(ngModel)]="newX"
-      placeholder="Enter x value"
-      type="number"
-      class="form-input"
-    />
-    <input
-      [(ngModel)]="newY"
-      placeholder="Enter y value"
-      type="number"
-      class="form-input"
-    />
-    <button (click)="addData()" class="form-btn">Add Data</button>
+  <div class="row pt-4">
+    <div class="form-label col-2">
+      <input
+        [(ngModel)]="newX"
+        placeholder="Enter x value"
+        type="number"
+        class="form-control mt-2"
+      />
+      <input
+        [(ngModel)]="newY"
+        placeholder="Enter y value"
+        type="number"
+        class="form-control mt-2"
+      />
+      <button (click)="addData()" class="btn btn-primary mt-2">Add Data</button>
+    </div>
+    <div class="col-10">
+      <canvas id="scatterChart"></canvas>
+    </div>
   </div>
 </div>
