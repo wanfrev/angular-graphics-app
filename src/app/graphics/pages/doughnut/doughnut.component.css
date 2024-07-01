@@ -3,3 +3,9 @@ canvas {
   height: 100%;
   max-height: calc(100vh - 120px);
 }
+.btn{
+  border-style: none;
+  background-color: #000;
+  width: 100%;
+  font-weight: bold;
+}
