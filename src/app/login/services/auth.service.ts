@@ -1,63 +1,30 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
-  isBrowser: boolean;
+  private isAuthenticated = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
-
-  private isLocalStorageAvailable(): boolean {
-    if (this.isBrowser) {
-      try {
-        const test = '__storage_test__';
-        localStorage.setItem(test, test);
-        localStorage.removeItem(test);
-        return true;
-      } catch (e) {
-        return false;
-      }
-    }
-    return false;
-  }
+  constructor(private router: Router) { }
 
   login(userName: string, password: string): boolean {
-    if (!this.isLocalStorageAvailable()) {
-      console.error('localStorage is not available');
-      return false;
-    }
-
-    let users = localStorage.getItem('angular18Local')
-      ? JSON.parse(localStorage.getItem('angular18Local')!)
-      : [];
-    const user = users.find(
-      (user: { userName: string; password: string }) =>
-        user.userName === userName && user.password === password
-    );
+    const users = JSON.parse(localStorage.getItem('angular18Local') || '[]');
+    const user = users.find((u: any) => u.userName === userName && u.password === password);
     if (user) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      this.isAuthenticated = true;
       return true;
     }
     return false;
   }
 
-  isLoggedIn(): boolean {
-    if (!this.isLocalStorageAvailable()) {
-      console.error('localStorage is not available');
-      return false;
-    }
-    return localStorage.getItem('loggedInUser') !== null;
+  logout(): void {
+    this.isAuthenticated = false;
+    this.router.navigate(['/login']);
   }
 
-  logout(): void {
-    if (!this.isLocalStorageAvailable()) {
-      console.error('localStorage is not available');
-      return;
-    }
-    localStorage.removeItem('loggedInUser');
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
   }
 }

@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .sidebar-div{
@@ -16,4 +16,8 @@
 
 .graph-div{
   width: 70%;
+  max-width: 943px;
+  min-width: 943px;
+  min-height: 471px;
+  max-height: 471px;
 }
