@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'shared-sidebar',
-  templateUrl: './sidebar.component.html'
+  templateUrl: './navbar.component.html'
 })
-export class SidebarComponent {
+export class NavbarComponent {
 
 }
