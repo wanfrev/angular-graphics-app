@@ -9,9 +9,19 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'graphics',
     loadChildren: () => import('./graphics/graphics.module').then(m => m.GraphicsModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
 ];
 
