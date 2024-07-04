@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <shared-sidebar *ngIf="showNavbar" class="container-fluid"></shared-sidebar>
+<div *ngIf="isLoggedIn()">
+  <shared-sidebar class="container-fluid"></shared-sidebar>
   <div>
     <router-outlet class="container-fluid"></router-outlet>
   </div>
