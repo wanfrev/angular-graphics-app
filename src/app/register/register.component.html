@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <h2>Login</h2>
-      <form (ngSubmit)="onLogin()">
+      <h2>Register</h2>
+      <form (ngSubmit)="onRegister()">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username">
@@ -11,10 +11,8 @@
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Register</button>
       </form>
-      <hr>
-      <button class="btn btn-secondary" (click)="goToRegister()">Register</button>
     </div>
   </div>
 </div>

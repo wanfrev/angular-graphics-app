@@ -6,7 +6,6 @@ import { LineComponent } from './pages/line/line.component';
 import { PieComponent } from './pages/pie/pie.component';
 import { RadarComponent } from './pages/radar/radar.component';
 import { ScatterComponent } from './pages/scatter/scatter.component';
-import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {
@@ -38,7 +37,7 @@ const routes: Routes = [
     redirectTo: 'bar'
   },
   {
-    path: '', redirectTo: '/login', pathMatch: 'full'
+    path: '', redirectTo: 'login', pathMatch: 'full'
   }
 ]
 
