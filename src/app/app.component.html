@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <shared-sidebar class="container-fluid"></shared-sidebar>
+  <shared-sidebar *ngIf="showNavbar" class="container-fluid"></shared-sidebar>
   <div>
     <router-outlet class="container-fluid"></router-outlet>
   </div>
