@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'shared-sidebar',
+  selector: 'shared-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
+export class NavbarComponent implements OnInit {
+  isLoggedIn: boolean = false;
 
-export class NavbarComponent{
+  constructor(private authService: AuthService) {}
 
+  ngOnInit(): void {
+    this.authService.isLoggedIn$.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
 }

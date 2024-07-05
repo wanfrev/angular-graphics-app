@@ -19,7 +19,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '', redirectTo: 'graphics', pathMatch: 'full'
   }
 ];
 

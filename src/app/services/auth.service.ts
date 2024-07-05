@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private usersKey = 'registeredUsers';
-  private isLoggedIn = false;
+  private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
   private loggedInUser: string | null = null;
 
-  constructor() { }
+  constructor() {
+    this.isLoggedInSubject.next(this.isAuthenticated());
+  }
 
   private getRegisteredUsers(): { username: string, password: string }[] {
     const usersJson = localStorage.getItem(this.usersKey);
@@ -24,7 +27,7 @@ export class AuthService {
     const users = this.getRegisteredUsers();
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
-      this.isLoggedIn = true;
+      this.isLoggedInSubject.next(true); // Emitir el cambio de estado
       this.loggedInUser = username;
       return of(true);
     }
@@ -43,11 +46,11 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.isLoggedIn;
+    return !!this.loggedInUser; // Verificar si hay un usuario registrado
   }
 
   logout(): void {
-    this.isLoggedIn = false;
+    this.isLoggedInSubject.next(false); // Emitir el cambio de estado
     this.loggedInUser = null;
   }
 }
