@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private usersKey = 'registeredUsers';
-  private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
   private loggedInUser: string | null = null;
 
@@ -30,6 +30,10 @@ export class AuthService {
     if (user) {
       this.isLoggedInSubject.next(true); // Emitir el cambio de estado
       this.loggedInUser = username;
+      if (this.isBrowser()) {
+        localStorage.setItem('authToken', 'your-token');
+      }
+      this.isLoggedInSubject.next(true);
       return of(true);
     }
     return of(false);
@@ -47,12 +51,28 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!this.loggedInUser; // Verificar si hay un usuario registrado
+    return this.isLoggedInSubject.value;
+  }
+
+  private hasToken(): boolean {
+    if (this.isBrowser()) {
+      return !!localStorage.getItem('authToken');
+    }
+    return false;
+  }
+
+  private isBrowser(): boolean {
+    return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
   }
 
   logout(): void {
+    if (this.isBrowser()) {
+      localStorage.removeItem('authToken');
+    }
     this.isLoggedInSubject.next(false); // Emitir el cambio de estado
     this.loggedInUser = null;
-    this.router.navigate(['/login']); // Redirigir al login
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
   }
 }
