@@ -18,9 +18,8 @@ const routes: Routes = [
     loadChildren: () => import('./graphics/graphics.module').then(m => m.GraphicsModule),
     canActivate: [AuthGuard]
   },
-  {
-    path: '', redirectTo: 'graphics', pathMatch: 'full'
-  }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

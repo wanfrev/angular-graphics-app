@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
   private loggedInUser: string | null = null;
 
-  constructor() {
+  constructor(private router: Router) {
     this.isLoggedInSubject.next(this.isAuthenticated());
   }
 
@@ -52,5 +53,6 @@ export class AuthService {
   logout(): void {
     this.isLoggedInSubject.next(false); // Emitir el cambio de estado
     this.loggedInUser = null;
+    this.router.navigate(['/login']); // Redirigir al login
   }
 }

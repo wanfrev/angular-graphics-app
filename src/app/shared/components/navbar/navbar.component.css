@@ -2,3 +2,7 @@
   background-color: #eee;
   border-radius: 10px;
 }
+.btn-logout{
+  text-transform: uppercase;
+  font-weight: bold;
+}
